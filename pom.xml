@@ -7,12 +7,11 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>todo</name>
+    <name>Todo</name>
     
     <properties>
         <spring.version>3.1.0.RC2</spring.version>
         <spring.data.mongo.version>1.0.0.RC1</spring.data.mongo.version>
-        <jetty.version>8.0.4.v20111024</jetty.version>
     </properties>
 
     <dependencies>
