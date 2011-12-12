@@ -7,4 +7,15 @@ This small example application uses the following stack :
  * Spring Data based MongoDB persistence
  * BackboneJS todo example application
 
-Tested with Netbeans + Tomcat 7.0.22
+In order to run it :
+
+ * Install Maven and MongoDB
+ * Create /data/db directory in order to allow MongoDB to store its data
+ * Run mongod daemon
+ * Run the following command : "mvn clean install t7:run"
+ * Open your browser and go to http://localhost:8080/todo/
+
+Also tested successfully with Netbeans 7.1 + Tomcat 7.0.22.
+
+With Maven Jetty 8.0.4 plugin, the application starts but can't be accessed. More details on http://stackoverflow.com/questions/8066943/spring-3-1-servlet-3-code-based-configuration-using-the-jetty-maven-plugin
+
