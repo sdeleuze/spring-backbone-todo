@@ -3,7 +3,7 @@ package org.resthub.todo;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.inject.Inject;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -13,8 +13,7 @@ import org.springframework.stereotype.Repository;
 public class TodoRepository {
 
     static final Logger logger = LoggerFactory.getLogger(TodoRepository.class);
-    @Autowired
-    MongoTemplate mongoTemplate;
+    @Inject MongoTemplate mongoTemplate;
     
     public Todo create(Todo todo) {
          mongoTemplate.insert(todo);

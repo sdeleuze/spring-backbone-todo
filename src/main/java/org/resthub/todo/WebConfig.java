@@ -19,10 +19,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class WebConfig extends WebMvcConfigurerAdapter {
     
     @Inject private Mongo mongo;
-               
-    @Override public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> returnValueHandlers) {
-        super.addReturnValueHandlers(returnValueHandlers);
-    }
     
     @Override public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("**/*.html").addResourceLocations("/");

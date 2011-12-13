@@ -10,7 +10,7 @@
     <name>Todo</name>
     
     <properties>
-        <spring.version>3.1.0.RC2</spring.version>
+        <spring.version>3.1.0.RELEASE</spring.version>
         <spring.data.mongo.version>1.0.0.RC1</spring.data.mongo.version>
     </properties>
 
@@ -115,9 +115,13 @@
     
     <repositories>
         <repository>
-            <id>maven.springframework.org</id>
-            <url>http://maven.springframework.org/milestone/</url>
+            <id>release-springsource</id>
+            <url>http://repo.springsource.org/release/</url>
         </repository>
+        <repository>
+            <id>milestone-springframework</id>
+            <url>http://maven.springframework.org/milestone/</url>
+        </repository>         
     </repositories>
 
 </project>
