@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@Controller @RequestMapping("/api/todo")
 public class TodoController {
 
     @Inject
@@ -17,35 +17,30 @@ public class TodoController {
     
     static final Logger logger = LoggerFactory.getLogger(TodoController.class);
 
-    @RequestMapping( value = "api/todo", method = RequestMethod.GET, produces = "application/json")
-    @ResponseBody
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json") @ResponseBody
     public List<Todo> findAll() {
         return todoRepository.findAll();
     }
     
-    @RequestMapping( value = "api/todo/{id}",method = RequestMethod.GET )
-    @ResponseBody
+    @RequestMapping(value = "{id}",method = RequestMethod.GET ) @ResponseBody
+    
     public final Todo get( @PathVariable( "id" ) final String id ){
         return this.todoRepository.findById(id);
     }
 
-    @RequestMapping(value = "api/todo", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    @ResponseStatus(HttpStatus.CREATED)
-    @ResponseBody
+    @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json") @ResponseStatus(HttpStatus.CREATED) @ResponseBody
     public Todo create(@RequestBody Todo todo) {
         Assert.notNull(todo);
         return todoRepository.create(todo);
     }
 
-    @RequestMapping(value = "api/todo/{id}", method = RequestMethod.PUT)
-    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "{id}", method = RequestMethod.PUT) @ResponseStatus(HttpStatus.OK)
     public void update(@RequestBody Todo todo, @PathVariable String id) {
         Assert.isTrue(todo.getId().equals(id));
         todoRepository.update(todo);
     }
 
-    @RequestMapping(value = "api/todo/{id}", method = RequestMethod.DELETE)
-    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "{id}", method = RequestMethod.DELETE) @ResponseStatus(HttpStatus.OK)
     public void remove(@PathVariable String id) {
         todoRepository.remove(id);
     }

@@ -43,9 +43,6 @@ public class TodoRepository {
         
         if (mongoTemplate.collectionExists(Todo.class)) {
             mongoTemplate.dropCollection(Todo.class);
-        }
-        
-        if (!mongoTemplate.collectionExists(Todo.class)) {
             mongoTemplate.createCollection(Todo.class);
         }
          
