@@ -14,6 +14,7 @@ public class TodoController {
 
     @Inject
     private TodoRepository todoRepository;
+    
     static final Logger logger = LoggerFactory.getLogger(TodoController.class);
 
     @RequestMapping( value = "api/todo", method = RequestMethod.GET, produces = "application/json")

@@ -12,8 +12,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class TodoRepository {
 
+    @Inject
+    private MongoTemplate mongoTemplate;
+    
     static final Logger logger = LoggerFactory.getLogger(TodoRepository.class);
-    @Inject MongoTemplate mongoTemplate;
     
     public Todo create(Todo todo) {
          mongoTemplate.insert(todo);
