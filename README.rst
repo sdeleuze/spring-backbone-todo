@@ -19,3 +19,7 @@ Also tested successfully with Netbeans 7.1 + Tomcat 7.0.22.
 
 With Maven Jetty 8.0.4 plugin, the application starts but can't be accessed. More details on http://stackoverflow.com/questions/8066943/spring-3-1-servlet-3-code-based-configuration-using-the-jetty-maven-plugin
 
+Alternatively, you can use Gradle instead of Maven
+ * "gradle tasks" : Lists all tasks in the project
+ * "gradle war" : creates a war file under ./build/libs/
+ * "gradle tomcatRun" : Uses your files as and where they are and deploys them to Tomcat (uses bmushko's gradle tomcat plugin)

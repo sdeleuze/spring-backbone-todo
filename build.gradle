@@ -1,0 +1,45 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'tomcat'
+apply plugin: 'project-reports'
+
+buildscript {
+    repositories {
+        add(new org.apache.ivy.plugins.resolver.URLResolver()) {
+            name = 'GitHub'
+            addArtifactPattern 'http://cloud.github.com/downloads/[organisation]/[module]/[module]-[revision].[ext]'
+        }
+    }
+
+    dependencies {
+        classpath 'bmuschko:gradle-tomcat-plugin:0.8.1'
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "http://repo.springsource.org/release/" }
+    maven { url "http://maven.springframework.org/milestone/" }
+}
+
+dependencies {
+    def tomcatVersion = '7.0.22'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+           "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}"
+    tomcat("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}") {
+        exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
+    }
+
+    compile 'org.springframework:spring-webmvc:3.1.0.RELEASE'
+    compile 'org.springframework.data:spring-data-mongodb:1.0.0.RC1'
+
+    compile 'javax.validation:validation-api:1.0.0.GA'
+    compile 'org.hibernate:hibernate-validator:4.2.0.Final'
+    compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.2'
+    compile 'javax.inject:javax.inject:1'
+    compile 'ch.qos.logback:logback-classic:1.0.0'
+    compile 'cglib:cglib-nodep:2.2'
+ 
+    providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
+}
+
