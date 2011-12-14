@@ -2,7 +2,6 @@ package org.resthub.todo;
 
 import com.mongodb.Mongo;
 import java.net.UnknownHostException;
-import javax.inject.Inject;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -13,9 +12,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @Configuration @EnableWebMvc @ComponentScan(basePackages = "org.resthub.todo")
 public class WebConfig extends WebMvcConfigurerAdapter {
-    
-    @Inject
-    private Mongo mongo;
     
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -31,8 +27,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
     
     @Bean
-    public MongoTemplate mongoTemplate() {
-        return new MongoTemplate(mongo, "todo");
+    public MongoTemplate mongoTemplate() throws UnknownHostException {
+        return new MongoTemplate(mongo(), "todo");
     }
        
 }
