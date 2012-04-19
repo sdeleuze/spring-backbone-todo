@@ -9,6 +9,7 @@ $(function(){
   // Todo Model
   // ----------
 
+
   // Our basic **Todo** model has `content`, `order`, and `done` attributes.
   window.Todo = Backbone.Model.extend({
 

@@ -18,7 +18,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'bmuschko:gradle-tomcat-plugin:0.8.1'
+        classpath 'bmuschko:gradle-tomcat-plugin:0.9.1'
     }
 }
 
@@ -36,8 +36,8 @@ dependencies {
         exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
     }
 
-    compile 'org.springframework:spring-webmvc:3.1.0.RELEASE'
-    compile 'org.springframework.data:spring-data-mongodb:1.0.0.RC1'
+    compile 'org.springframework:spring-webmvc:3.1.1.RELEASE'
+    compile 'org.springframework.data:spring-data-mongodb:1.0.1.RELEASE'
 
     compile 'javax.validation:validation-api:1.0.0.GA'
     compile 'org.hibernate:hibernate-validator:4.2.0.Final'
@@ -50,6 +50,19 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.0-milestone-6'
+    gradleVersion = '1.0-milestone-9'
+}
+
+war {
+    webXml = file('C:/Workspaces/resthub2/spring-backbone-todo/web.xml')
+
+}
+
+tomcatRun {
+    webDefaultXml = file('C:/Workspaces/resthub2/spring-backbone-todo/web.xml')
+}
+
+tomcatRunWar {
+    webDefaultXml = file('C:/Workspaces/resthub2/spring-backbone-todo/web.xml')
 }
 
