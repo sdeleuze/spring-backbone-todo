@@ -15,4 +15,6 @@ In order to run it :
  * Run the following command : "mvn clean install t7:run" (Tomcat 7) or "mvn clean install jetty:run" (Jetty 8)
  * Open your browser and go to http://localhost:8080/todo/
 
+If you like Spring + Backbone.js, you should have a look to `RESThub <http://resthub.org>`_
+
 
